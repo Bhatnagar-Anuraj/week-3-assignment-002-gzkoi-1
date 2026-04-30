@@ -35,7 +35,7 @@ ground = cmds.polyPlane(name="ground", width=60, height=60,
                         subdivisionsX=1, subdivisionsY=1)[0]
 
 # ---------------------------------------------------------------------------
-# TODO: Build your scene below by calling functions from scene_functions.
+# tODO: Build your scene below by calling functions from scene_functions.
 #
 # Example calls (uncomment and modify once your functions are implemented):
 #
@@ -49,6 +49,34 @@ ground = cmds.polyPlane(name="ground", width=60, height=60,
 #
 # Remember: call each function at least once, and aim for 15+ objects.
 # ---------------------------------------------------------------------------
+
+
+# Reset scene
+cmds.file(new=True, force=True)
+
+# Ground
+ground = cmds.polyPlane(name="ground", w=60, h=60)[0]
+
+# Buildings
+sf.create_building(6, 12, 6, (-10, 0, 10))
+sf.create_building(5, 9, 5, (-2, 0, 10))
+sf.create_building(7, 14, 7, (8, 0, 10))
+
+# Create trees
+sf.create_tree(position=(-12, 0, -5))
+sf.create_tree(position=(-8, 0, -6))
+sf.create_tree(position=(-10, 0, -8))
+
+# create fence
+sf.create_fence(length=12, post_count=6, position=(-14, 0, -10))
+
+# create lamp posts
+sf.create_lamp_post(position=(-5, 0, 2))
+sf.create_lamp_post(position=(0, 0, 2))
+sf.create_lamp_post(position=(5, 0, 2))
+
+# circular tree layout for center area
+sf.place_in_circle(sf.create_tree, count=8, radius=12)
 
 
 # ---------------------------------------------------------------------------
